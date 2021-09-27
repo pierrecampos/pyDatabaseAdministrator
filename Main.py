@@ -12,10 +12,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super().__init__(parent)
         super().setupUi(self)
 
-        #Screens
+        # Screens
         configuration_tab = ConfigurationScreen()
         self.tabWidget.addTab(configuration_tab, "Configurações")
-
 
 
 if __name__ == "__main__":

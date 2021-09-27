@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Configuration</class>
+ <widget class="QWidget" name="Configuration">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>729</width>
+    <height>563</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Configuration</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="3" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="1">
+    <widget class="QPushButton" name="btnSaveSettings">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>Salvar Configurações</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QGroupBox" name="groupProject">
+     <property name="title">
+      <string>Projeto</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="txtLocalXml">
+        <property name="placeholderText">
+         <string>Caminho arquivo local.xml</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLineEdit" name="txtLog3_0">
+        <property name="placeholderText">
+         <string>Caminho banco Log 3.0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLineEdit" name="txtVersion">
+        <property name="placeholderText">
+         <string>Versão</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="btnDatabasePath">
+        <property name="text">
+         <string>Procurar</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="btnLocalXml">
+        <property name="text">
+         <string>Procurar</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLineEdit" name="txtDatabaseNFE">
+        <property name="placeholderText">
+         <string>Caminho banco NFE</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="txtDatabasesPath">
+        <property name="placeholderText">
+         <string>Caminho dos bancos</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLineEdit" name="txtLog2_5">
+        <property name="placeholderText">
+         <string>Caminho banco Log 2.5</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLineEdit" name="txtAddress">
+        <property name="placeholderText">
+         <string>Endereço</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="btnLog2_5">
+        <property name="text">
+         <string>Procurar</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="btnLog3_0">
+        <property name="text">
+         <string>Procurar</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QPushButton" name="btnDatabaseNFE">
+        <property name="text">
+         <string>Procurar</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QPushButton" name="btnVersion">
+        <property name="text">
+         <string>Procurar</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QPushButton" name="btnAddress">
+        <property name="text">
+         <string>Procurar</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QGroupBox" name="groupFirebird">
+     <property name="title">
+      <string>Firebird</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="txtFirebird3_0">
+        <property name="placeholderText">
+         <string>Caminho Firebird 3.0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>Procurar</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="txtFirebird2_5">
+        <property name="placeholderText">
+         <string>Caminho Firebird 2.5</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="text">
+         <string>Procurar</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <layout class="QGridLayout" name="gridFirebirdPorts">
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="txtFirebirdPort3_0">
+          <property name="placeholderText">
+           <string>Porta Firebird 3.0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLineEdit" name="txtFirebirdPort2_5">
+          <property name="placeholderText">
+           <string>Porta Firebird 2.5</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>txtDatabasesPath</tabstop>
+  <tabstop>btnDatabasePath</tabstop>
+  <tabstop>txtLocalXml</tabstop>
+  <tabstop>btnLocalXml</tabstop>
+  <tabstop>txtLog2_5</tabstop>
+  <tabstop>btnLog2_5</tabstop>
+  <tabstop>txtLog3_0</tabstop>
+  <tabstop>btnLog3_0</tabstop>
+  <tabstop>txtDatabaseNFE</tabstop>
+  <tabstop>btnDatabaseNFE</tabstop>
+  <tabstop>txtVersion</tabstop>
+  <tabstop>btnVersion</tabstop>
+  <tabstop>txtAddress</tabstop>
+  <tabstop>btnAddress</tabstop>
+  <tabstop>txtFirebird2_5</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>txtFirebird3_0</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>txtFirebirdPort2_5</tabstop>
+  <tabstop>txtFirebirdPort3_0</tabstop>
+  <tabstop>btnSaveSettings</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
