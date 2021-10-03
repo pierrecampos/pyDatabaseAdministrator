@@ -3,7 +3,7 @@ import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication
 
 # Imports UIs
-from Configuration_Screen import ConfigurationScreen
+from ConfigurationScreen import ConfigurationScreen
 from views.MainWindowUI import Ui_MainWindow
 
 

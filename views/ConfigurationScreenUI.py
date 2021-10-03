@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\ConfigurationScreen.UI'
+# Form implementation generated from reading ui file 'ConfigurationScreen.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -83,15 +83,15 @@ class Ui_Configuration(object):
         self.txtFirebird3_0 = QtWidgets.QLineEdit(self.groupFirebird)
         self.txtFirebird3_0.setObjectName("txtFirebird3_0")
         self.gridLayout_3.addWidget(self.txtFirebird3_0, 1, 0, 1, 1)
-        self.pushButton = QtWidgets.QPushButton(self.groupFirebird)
-        self.pushButton.setObjectName("pushButton")
-        self.gridLayout_3.addWidget(self.pushButton, 0, 1, 1, 1)
+        self.btnFirebirdPath2_5 = QtWidgets.QPushButton(self.groupFirebird)
+        self.btnFirebirdPath2_5.setObjectName("btnFirebirdPath2_5")
+        self.gridLayout_3.addWidget(self.btnFirebirdPath2_5, 0, 1, 1, 1)
         self.txtFirebird2_5 = QtWidgets.QLineEdit(self.groupFirebird)
         self.txtFirebird2_5.setObjectName("txtFirebird2_5")
         self.gridLayout_3.addWidget(self.txtFirebird2_5, 0, 0, 1, 1)
-        self.pushButton_2 = QtWidgets.QPushButton(self.groupFirebird)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.gridLayout_3.addWidget(self.pushButton_2, 1, 1, 1, 1)
+        self.btnFirebirdPath3_0 = QtWidgets.QPushButton(self.groupFirebird)
+        self.btnFirebirdPath3_0.setObjectName("btnFirebirdPath3_0")
+        self.gridLayout_3.addWidget(self.btnFirebirdPath3_0, 1, 1, 1, 1)
         self.gridFirebirdPorts = QtWidgets.QGridLayout()
         self.gridFirebirdPorts.setObjectName("gridFirebirdPorts")
         self.txtFirebirdPort3_0 = QtWidgets.QLineEdit(self.groupFirebird)
@@ -119,10 +119,10 @@ class Ui_Configuration(object):
         Configuration.setTabOrder(self.btnVersion, self.txtAddress)
         Configuration.setTabOrder(self.txtAddress, self.btnAddress)
         Configuration.setTabOrder(self.btnAddress, self.txtFirebird2_5)
-        Configuration.setTabOrder(self.txtFirebird2_5, self.pushButton)
-        Configuration.setTabOrder(self.pushButton, self.txtFirebird3_0)
-        Configuration.setTabOrder(self.txtFirebird3_0, self.pushButton_2)
-        Configuration.setTabOrder(self.pushButton_2, self.txtFirebirdPort2_5)
+        Configuration.setTabOrder(self.txtFirebird2_5, self.btnFirebirdPath2_5)
+        Configuration.setTabOrder(self.btnFirebirdPath2_5, self.txtFirebird3_0)
+        Configuration.setTabOrder(self.txtFirebird3_0, self.btnFirebirdPath3_0)
+        Configuration.setTabOrder(self.btnFirebirdPath3_0, self.txtFirebirdPort2_5)
         Configuration.setTabOrder(self.txtFirebirdPort2_5, self.txtFirebirdPort3_0)
         Configuration.setTabOrder(self.txtFirebirdPort3_0, self.btnSaveSettings)
 
@@ -147,8 +147,8 @@ class Ui_Configuration(object):
         self.btnAddress.setText(_translate("Configuration", "Procurar"))
         self.groupFirebird.setTitle(_translate("Configuration", "Firebird"))
         self.txtFirebird3_0.setPlaceholderText(_translate("Configuration", "Caminho Firebird 3.0"))
-        self.pushButton.setText(_translate("Configuration", "Procurar"))
+        self.btnFirebirdPath2_5.setText(_translate("Configuration", "Procurar"))
         self.txtFirebird2_5.setPlaceholderText(_translate("Configuration", "Caminho Firebird 2.5"))
-        self.pushButton_2.setText(_translate("Configuration", "Procurar"))
+        self.btnFirebirdPath3_0.setText(_translate("Configuration", "Procurar"))
         self.txtFirebirdPort3_0.setPlaceholderText(_translate("Configuration", "Porta Firebird 3.0"))
         self.txtFirebirdPort2_5.setPlaceholderText(_translate("Configuration", "Porta Firebird 2.5"))
