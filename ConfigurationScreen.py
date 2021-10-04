@@ -1,3 +1,5 @@
+from PyQt5.QtCore import QRegExp
+from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtWidgets import QWidget, QPushButton
 
 import Utils
@@ -9,6 +11,7 @@ class ConfigurationScreen(QWidget, Ui_Configuration):
         super().__init__(parent)
         super().setupUi(self)
         Utils.set_event_to_buttons(self, QPushButton, self.button_events)
+        self.set_regex_firebird_ports()
 
     def button_events(self):
         sender = self.sender()
@@ -42,3 +45,9 @@ class ConfigurationScreen(QWidget, Ui_Configuration):
             self.txtFirebird3_0.setText(path)
         elif sender == self.btnSaveSettings:
             print("SAVE!")
+
+    def set_regex_firebird_ports(self):
+        regex = QRegExp("[0-9]{8}")
+        self.txtFirebirdPort2_5.setValidator(QRegExpValidator(regex))
+        self.txtFirebirdPort3_0.setValidator(QRegExpValidator(regex))
+
