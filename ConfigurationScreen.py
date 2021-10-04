@@ -8,27 +8,37 @@ class ConfigurationScreen(QWidget, Ui_Configuration):
     def __init__(self, parent=None):
         super().__init__(parent)
         super().setupUi(self)
-        Utils.set_event_to_buttons(self.groupProject, QPushButton, self.button_events)
+        Utils.set_event_to_buttons(self, QPushButton, self.button_events)
 
     def button_events(self):
         sender = self.sender()
+        path = ''
         if sender == self.btnDatabasePath:
-            pass
+            path = Utils.get_folder_path(self)
+            self.txtDatabasesPath.setText(path)
         elif sender == self.btnLocalXml:
-            pass
+            path = Utils.get_file_path(self, 'local.xml')
+            self.txtLocalXml.setText(path)
         elif sender == self.btnLog2_5:
-            pass
+            path = Utils.get_file_path(self, '*.fdb')
+            self.txtLog2_5.setText(path)
         elif sender == self.btnLog3_0:
-            pass
+            path = Utils.get_file_path(self, '*.fdb')
+            self.txtLog3_0.setText(path)
         elif sender == self.btnDatabaseNFE:
-            pass
+            path = Utils.get_file_path(self, '*.fdb')
+            self.txtDatabaseNFE.setText(path)
         elif sender == self.btnVersion:
-            pass
-        elif sender == self.txtAddress:
-            pass
+            path = Utils.get_folder_path(self)
+            self.txtVersion.setText(path)
+        elif sender == self.btnAddress:
+            path = Utils.get_folder_path(self)
+            self.txtAddress.setText(path)
         elif sender == self.btnFirebirdPath2_5:
-            pass
+            path = Utils.get_folder_path(self)
+            self.txtFirebird2_5.setText(path)
         elif sender == self.btnFirebirdPath3_0:
-            pass
+            path = Utils.get_folder_path(self)
+            self.txtFirebird3_0.setText(path)
         elif sender == self.btnSaveSettings:
-            pass
+            print("SAVE!")
