@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 
 # Imports UIs
 from ConfigurationScreen import ConfigurationScreen
+from FileManager import FileManager
 from views.MainWindowUI import Ui_MainWindow
 
 
@@ -11,9 +12,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         super().setupUi(self)
+        self.fm = FileManager()
 
         # Screens
-        configuration_tab = ConfigurationScreen()
+        configuration_tab = ConfigurationScreen(None, self.fm.attributes)
         self.tabWidget.addTab(configuration_tab, "Configurações")
 
 
