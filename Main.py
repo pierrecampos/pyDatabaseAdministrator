@@ -15,7 +15,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.fm = FileManager()
 
         # Screens
-        configuration_tab = ConfigurationScreen(None, self.fm.attributes)
+        configuration_tab = ConfigurationScreen(None, self.fm.get_attributes_from_config_file())
         self.tabWidget.addTab(configuration_tab, "Configurações")
 
 

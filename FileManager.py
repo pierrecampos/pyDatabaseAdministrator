@@ -3,14 +3,11 @@ import os
 
 class FileManager:
     def __init__(self):
-        self.attributes = None
         self.verify_config_file()
 
     def verify_config_file(self):
         if not self.has_config_file():
             self.create_configuration_file()
-        else:
-            self.attributes = self.get_attributes_from_config_file()
 
     @staticmethod
     def has_config_file():
