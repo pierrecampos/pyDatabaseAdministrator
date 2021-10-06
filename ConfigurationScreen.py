@@ -4,6 +4,8 @@ from PyQt5.QtWidgets import QWidget, QPushButton, QLineEdit
 
 import Utils
 from Configuration import Configuration
+from CustomExceptions import ExceptionSaveFields
+from DialogsHelper import DialogsHelper
 from FileManager import FileManager
 from views.ConfigurationScreenUI import Ui_Configuration
 
@@ -48,8 +50,14 @@ class ConfigurationScreen(QWidget, Ui_Configuration):
             path = Utils.get_folder_path(self)
             self.txtFirebird3_0.setText(path)
         elif sender == self.btnSaveSettings:
-            self.screen_to_object()
+            self.save_settings()
+
+    def save_settings(self):
+        try:
+            self.validate_fields()
             FileManager.save_config_file(self.conf.get_attributes())
+        except ExceptionSaveFields as err:
+            DialogsHelper.show_info(self, 'Atenção', err.message)
 
     def set_regex_firebird_ports(self):
         regex = QRegExp("[0-9]{8}")
@@ -84,10 +92,11 @@ class ConfigurationScreen(QWidget, Ui_Configuration):
         self.txtFirebirdPort2_5.setText(self.conf.port_firebird2_5)
         self.txtFirebirdPort3_0.setText(self.conf.port_firebird3_0)
 
-    def get_txt_values(self):
+    def validate_fields(self):
         txt_values = dict()
         for txt in self.findChildren(QLineEdit):
             key = str(txt.objectName())
-            value = txt.text()
+            value = str(txt.text()).strip()
+            if not value:
+                raise ExceptionSaveFields('Preencha todos os campos antes de salvar !')
             txt_values[key] = value
-        return txt_values
