@@ -3,9 +3,10 @@ import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication
 
 # Imports UIs
-from ConfigurationScreen import ConfigurationScreen
-from FileManager import FileManager
-from views.MainWindowUI import Ui_MainWindow
+from views.ConfigurationScreen import ConfigurationScreen
+from util.FileManager import FileManager
+from views.ManageDatabaseScreen import ManageDatabaseScreen
+from views.ui.MainWindowUI import Ui_MainWindow
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -15,7 +16,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.fm = FileManager()
 
         # Screens
+        manage_database_tab = ManageDatabaseScreen(None)
         configuration_tab = ConfigurationScreen(None, self.fm.get_attributes_from_config_file())
+
+        self.tabWidget.addTab(manage_database_tab, "Administrar Bancos")
         self.tabWidget.addTab(configuration_tab, "Configurações")
 
 

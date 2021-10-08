@@ -2,12 +2,12 @@ from PyQt5.QtCore import QRegExp
 from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtWidgets import QWidget, QPushButton, QLineEdit
 
-import Utils
-from Configuration import Configuration
-from CustomExceptions import ExceptionSaveFields
-from DialogsHelper import DialogsHelper
-from FileManager import FileManager
-from views.ConfigurationScreenUI import Ui_Configuration
+from util import Utils
+from model.Configuration import Configuration
+from util.CustomExceptions import ExceptionSaveFields
+from util.DialogsHelper import DialogsHelper
+from util.FileManager import FileManager
+from views.ui.ConfigurationScreenUI import Ui_Configuration
 
 
 class ConfigurationScreen(QWidget, Ui_Configuration):
@@ -54,6 +54,7 @@ class ConfigurationScreen(QWidget, Ui_Configuration):
 
     def save_settings(self):
         try:
+            self.screen_to_object()
             self.validate_fields()
             FileManager.save_config_file(self.conf.get_attributes())
         except ExceptionSaveFields as err:
