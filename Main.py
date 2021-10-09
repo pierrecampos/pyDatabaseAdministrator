@@ -4,8 +4,8 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 
 # Imports UIs
 from model.Configuration import Configuration
-from views.ConfigurationScreen import ConfigurationScreen
 from util.FileManager import FileManager
+from views.ConfigurationScreen import ConfigurationScreen
 from views.ManageDatabaseScreen import ManageDatabaseScreen
 from views.ui.MainWindowUI import Ui_MainWindow
 

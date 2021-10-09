@@ -2,11 +2,10 @@ from PyQt5.QtCore import QRegExp
 from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtWidgets import QWidget, QPushButton, QLineEdit
 
-from util import Utils
-from model.Configuration import Configuration
 from util.CustomExceptions import ExceptionSaveFields
 from util.DialogsHelper import DialogsHelper
 from util.FileManager import FileManager
+from util.Utils import Utils
 from views.ui.ConfigurationScreenUI import Ui_Configuration
 
 
