@@ -18,11 +18,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.configuration = Configuration(self.fm.get_attributes_from_config_file())
 
         # Screens
-        manage_database_tab = ManageDatabaseScreen(None, self.configuration)
-        configuration_tab = ConfigurationScreen(None, self.configuration)
+        md_tab = ManageDatabaseScreen(None, self.configuration)
+        conf_tab = ConfigurationScreen(None, self.configuration, md_tab.update_database_list)
 
-        self.tabWidget.addTab(manage_database_tab, "Administrar Bancos")
-        self.tabWidget.addTab(configuration_tab, "Configurações")
+        self.tabWidget.addTab(md_tab, "Administrar Bancos")
+        self.tabWidget.addTab(conf_tab, "Configurações")
 
 
 if __name__ == "__main__":

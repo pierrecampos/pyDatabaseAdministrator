@@ -10,10 +10,11 @@ from views.ui.ConfigurationScreenUI import Ui_Configuration
 
 
 class ConfigurationScreen(QWidget, Ui_Configuration):
-    def __init__(self, parent=None, configuration=None):
+    def __init__(self, parent=None, configuration=None, update_database_list=None):
         super().__init__(parent)
         super().setupUi(self)
         self.conf = configuration
+        self.update_database_list = update_database_list
         Utils.set_event_to_buttons(self, QPushButton, self.button_events)
         self.set_regex_firebird_ports()
         self.object_to_screen()
@@ -55,6 +56,8 @@ class ConfigurationScreen(QWidget, Ui_Configuration):
         try:
             self.screen_to_object()
             self.validate_fields()
+            # update_list comes from ManageDatabaseScreen.update_database_list
+            self.update_database_list()
             FileManager.save_config_file(self.conf.get_attributes())
         except ExceptionSaveFields as err:
             DialogsHelper.show_info(self, 'Atenção', err.message)
