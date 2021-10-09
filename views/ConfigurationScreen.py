@@ -11,10 +11,10 @@ from views.ui.ConfigurationScreenUI import Ui_Configuration
 
 
 class ConfigurationScreen(QWidget, Ui_Configuration):
-    def __init__(self, parent=None, attributes=None):
+    def __init__(self, parent=None, configuration=None):
         super().__init__(parent)
         super().setupUi(self)
-        self.conf = Configuration(attributes)
+        self.conf = configuration
         Utils.set_event_to_buttons(self, QPushButton, self.button_events)
         self.set_regex_firebird_ports()
         self.object_to_screen()
