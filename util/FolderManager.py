@@ -12,7 +12,7 @@ class FolderManager:
         folders = set()
         for root, dirs, files in os.walk(path):
             for file in files:
-                if str(file).endswith('.fdb'):
+                if str(file).lower().endswith('.fdb'):
                     folders.add(os.path.basename(root))
         folders = Utils.fix_folders_name(folders)
         return sorted(folders)
