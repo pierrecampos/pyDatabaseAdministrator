@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ManageDatabaseScreen.ui'
+# Form implementation generated from reading ui file '.\ManageDatabaseScreen.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -78,6 +78,7 @@ class Ui_ManageDatabaseScreen(object):
         font.setBold(False)
         font.setWeight(50)
         self.lblDatabaseConnected.setFont(font)
+        self.lblDatabaseConnected.setText("")
         self.lblDatabaseConnected.setObjectName("lblDatabaseConnected")
         self.gridLayout_3.addWidget(self.lblDatabaseConnected, 0, 3, 1, 1)
         self.lblConnectionStatus = QtWidgets.QLabel(self.headerFrame)
@@ -95,6 +96,7 @@ class Ui_ManageDatabaseScreen(object):
         font.setBold(False)
         font.setWeight(50)
         self.lblDatabaseVersion.setFont(font)
+        self.lblDatabaseVersion.setText("")
         self.lblDatabaseVersion.setObjectName("lblDatabaseVersion")
         self.gridLayout_3.addWidget(self.lblDatabaseVersion, 0, 5, 1, 1)
         self.gridLayout.addWidget(self.headerFrame, 0, 0, 1, 1)
@@ -160,6 +162,7 @@ class Ui_ManageDatabaseScreen(object):
         sizePolicy.setHeightForWidth(self.lblFirebirdVersion.sizePolicy().hasHeightForWidth())
         self.lblFirebirdVersion.setSizePolicy(sizePolicy)
         self.lblFirebirdVersion.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.lblFirebirdVersion.setText("")
         self.lblFirebirdVersion.setObjectName("lblFirebirdVersion")
         self.gridLayout_4.addWidget(self.lblFirebirdVersion, 0, 1, 1, 1)
         self.gridLayout.addWidget(self.footerFrame, 4, 0, 1, 1)
@@ -178,9 +181,6 @@ class Ui_ManageDatabaseScreen(object):
         self.lblStatus.setText(_translate("ManageDatabaseScreen", "Status:"))
         self.lblDatabase.setText(_translate("ManageDatabaseScreen", "Banco:"))
         self.lblDatabaseV.setText(_translate("ManageDatabaseScreen", "Versão Banco"))
-        self.lblDatabaseConnected.setText(_translate("ManageDatabaseScreen", "EMPRESA X"))
         self.lblConnectionStatus.setText(_translate("ManageDatabaseScreen", "Desconectado"))
-        self.lblDatabaseVersion.setText(_translate("ManageDatabaseScreen", "202110-01"))
         self.txtFilterDatabase.setPlaceholderText(_translate("ManageDatabaseScreen", "Pesquisar banco"))
         self.lblFirebirdV.setText(_translate("ManageDatabaseScreen", "Versão Firebird:"))
-        self.lblFirebirdVersion.setText(_translate("ManageDatabaseScreen", "Firebird 2.5"))

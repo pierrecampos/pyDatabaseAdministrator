@@ -1,5 +1,3 @@
-import asyncio
-
 from PyQt5.QtWidgets import QWidget
 
 from model.Constants import Constants
@@ -23,11 +21,11 @@ class ManageDatabaseScreen(QWidget, Ui_ManageDatabaseScreen):
         database = self.database_list[selected_database_name]
         connected, firebird_version = FirebirdUtils.discover_connection(database, self.conf)
         if not connected:
+            self.set_status(connected, firebird_version, selected_database_name)
             DialogsHelper.show_warning(self, "Conexão",
                                        "Não foi possível se conectar ao banco " + selected_database_name)
-
-
-
+            return
+        self.set_status(connected, firebird_version, selected_database_name)
 
     def fill_database_list(self):
         self.databaseList.clear()
@@ -36,3 +34,15 @@ class ManageDatabaseScreen(QWidget, Ui_ManageDatabaseScreen):
     def update_database_list(self):
         self.database_list = FolderManager.get_folders(self.conf.databases_path)
         self.fill_database_list()
+
+    def set_status(self, connected, firebird_version, database):
+        if connected:
+            self.lblConnectionStatus.setText('Conectado')
+            self.lblConnectionStatus.setStyleSheet('color:green;')
+        else:
+            self.lblConnectionStatus.setText('Desconectado')
+            self.lblConnectionStatus.setStyleSheet('color:red;')
+
+        self.lblDatabaseConnected.setText(database)
+        self.lblDatabaseVersion.setText('-')
+        self.lblFirebirdVersion.setText(Constants.get_version_string(firebird_version))

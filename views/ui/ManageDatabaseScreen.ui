@@ -105,7 +105,7 @@
          </font>
         </property>
         <property name="text">
-         <string>EMPRESA X</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -136,7 +136,7 @@
          </font>
         </property>
         <property name="text">
-         <string>202110-01</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -280,7 +280,7 @@ border-radius: 4px;
          <enum>QFrame::Sunken</enum>
         </property>
         <property name="text">
-         <string>Firebird 2.5</string>
+         <string/>
         </property>
        </widget>
       </item>
