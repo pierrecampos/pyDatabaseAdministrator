@@ -1,5 +1,6 @@
 import os
-
+from functools import cmp_to_key
+from model.Database import Database
 from util.Utils import Utils
 
 
@@ -9,10 +10,11 @@ class FolderManager:
 
     @staticmethod
     def get_folders(path):
-        folders = set()
+        databases = dict()
         for root, dirs, files in os.walk(path):
             for file in files:
                 if str(file).lower().endswith('.fdb'):
-                    folders.add(os.path.basename(root))
-        folders = Utils.fix_folders_name(folders)
-        return sorted(folders)
+                    name = Utils.fix_folder_name(os.path.basename(root))
+                    complete_path = os.path.join(root, file)
+                    databases[name] = Database(name, complete_path)
+        return databases

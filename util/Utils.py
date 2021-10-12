@@ -20,13 +20,5 @@ class Utils:
         return path
 
     @staticmethod
-    def fix_folders_name(folders):
-        if folders is None:
-            return
-
-        new_folders = set()
-        for folder in folders:
-            folder = str(folder).replace('_', ' ')
-            new_folders.add(folder)
-
-        return new_folders
+    def fix_folder_name(name):
+        return name.replace('_', ' ')

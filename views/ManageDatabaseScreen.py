@@ -11,7 +11,14 @@ class ManageDatabaseScreen(QWidget, Ui_ManageDatabaseScreen):
         self.conf = configuration
         self.database_list = FolderManager.get_folders(self.conf.databases_path)
         self.fill_database_list()
+        self.databaseList.doubleClicked.connect(self.set_database)
 
+    def set_database(self):
+        selected_database_name = self.databaseList.currentItem().text()
+        database = self.database_list[selected_database_name]
+
+
+        
     def fill_database_list(self):
         self.databaseList.clear()
         self.databaseList.addItems(self.database_list)
