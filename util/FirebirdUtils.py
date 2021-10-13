@@ -73,13 +73,13 @@ class FirebirdUtils:
         return connected
 
     @staticmethod
-    def build_firebird_file_conf(configurator, firebird_version):
+    def build_firebird_file_conf(configurator, firebird_version, database):
         file_content = SampleFiles.BASE_CONF
-        file_content = file_content.replace(SampleFiles.BASE_CONF_ALIAS, configurator.database_client_path)
+        file_content = file_content.replace(SampleFiles.BASE_CONF_ALIAS, database.path)
 
         if firebird_version == Constants.FIREBIRD2_5:
-            file_content = file_content.replace(SampleFiles.LOG_ALIAS, configurator.log_2_5_path)
+            file_content = file_content.replace(SampleFiles.LOG_ALIAS, configurator.log2_5_path)
         else:
-            file_content = file_content.replace(SampleFiles.LOG_ALIAS, configurator.log_3_0_path)
+            file_content = file_content.replace(SampleFiles.LOG_ALIAS, configurator.log3_0_path)
 
         return file_content
