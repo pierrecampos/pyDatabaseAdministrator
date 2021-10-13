@@ -6,6 +6,7 @@ import psutil
 from fdb import Error
 
 from model.Constants import Constants
+from util.SampleFile import SampleFiles
 
 
 class FirebirdUtils:
@@ -70,3 +71,15 @@ class FirebirdUtils:
             connected = cls.test_connection(dsn, port)
 
         return connected
+
+    @staticmethod
+    def build_firebird_file_conf(configurator, firebird_version):
+        file_content = SampleFiles.BASE_CONF
+        file_content = file_content.replace(SampleFiles.BASE_CONF_ALIAS, configurator.database_client_path)
+
+        if firebird_version == Constants.FIREBIRD2_5:
+            file_content = file_content.replace(SampleFiles.LOG_ALIAS, configurator.log_2_5_path)
+        else:
+            file_content = file_content.replace(SampleFiles.LOG_ALIAS, configurator.log_3_0_path)
+
+        return file_content

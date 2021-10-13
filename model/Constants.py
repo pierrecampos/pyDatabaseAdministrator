@@ -5,8 +5,8 @@ class Constants:
     @classmethod
     def get_version_string(cls, version):
         if version == cls.FIREBIRD2_5:
-            return "Firebird 2.5"
+            return "2.5"
         elif version == cls.FIREBIRD3_0:
-            return "Firebird 3.0"
+            return "3.0"
         else:
             return "-"
