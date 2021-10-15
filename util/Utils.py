@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QFileDialog
 
 from model.Constants import Constants
+from util.CustomExceptions import ExceptionSaveFile
 from util.SampleFile import SampleFiles
 
 
@@ -36,5 +37,8 @@ class Utils:
 
     @staticmethod
     def write_file(content, path):
-        with open(path, 'w') as file:
-            file.write(content)
+        try:
+            with open(path, 'w') as file:
+                file.write(content)
+        except IOError:
+            raise ExceptionSaveFile("Erro ao tentar escrever o arquivo!")

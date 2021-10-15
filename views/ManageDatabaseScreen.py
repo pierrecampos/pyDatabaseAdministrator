@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QWidget
 
 from model.Constants import Constants
+from util.CustomExceptions import ExceptionSaveFile
 from util.DialogsHelper import DialogsHelper
 from util.FirebirdUtils import FirebirdUtils
 from util.FolderManager import FolderManager
@@ -27,12 +28,16 @@ class ManageDatabaseScreen(QWidget, Ui_ManageDatabaseScreen):
                                        "Não foi possível se conectar ao banco " + selected_database_name)
             return
 
-        firebird_conf = FirebirdUtils.build_firebird_file_conf(self.conf, firebird_version, database)
-        firebird_conf_path = FirebirdUtils.get_default_firebird_file_path(self.conf, firebird_version)
-        Utils.write_file(firebird_conf, firebird_conf_path)
+        try:
+            firebird_conf = FirebirdUtils.build_firebird_file_conf(self.conf, firebird_version, database)
+            firebird_conf_path = FirebirdUtils.get_default_firebird_file_path(self.conf, firebird_version)
+            Utils.write_file(firebird_conf, firebird_conf_path)
 
-        local_xml = Utils.build_local_xml(self.conf, firebird_version)
-        Utils.write_file(local_xml, self.conf.local_xml_path)
+            local_xml = Utils.build_local_xml(self.conf, firebird_version)
+            Utils.write_file(local_xml, self.conf.local_xml_path)
+        except ExceptionSaveFile as err:
+            DialogsHelper.show_error(self, "Error", err.message)
+            return
 
         self.set_status(connected, firebird_version, selected_database_name)
 

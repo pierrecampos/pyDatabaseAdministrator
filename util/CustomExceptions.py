@@ -6,3 +6,7 @@ class CustomExceptions(Exception):
 
 class ExceptionSaveFields(CustomExceptions):
     pass
+
+
+class ExceptionSaveFile(CustomExceptions):
+    pass

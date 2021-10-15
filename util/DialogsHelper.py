@@ -10,3 +10,7 @@ class DialogsHelper:
     @staticmethod
     def show_warning(parent=None, title='Atenção', message='Atenção'):
         QMessageBox.warning(parent, title, message)
+
+    @staticmethod
+    def show_error(parent=None, title='Atenção', message='Atenção'):
+        QMessageBox.critical(parent, title, message)
