@@ -1,5 +1,8 @@
 from PyQt5.QtWidgets import QFileDialog
 
+from model.Constants import Constants
+from util.SampleFile import SampleFiles
+
 
 class Utils:
     pass
@@ -20,5 +23,18 @@ class Utils:
         return path
 
     @staticmethod
-    def fix_folder_name(name):
-        return name.replace('_', ' ')
+    def build_local_xml(configurator, firebird_version):
+        file_content = SampleFiles.LOCAL_XML
+        port = ''
+        if firebird_version == Constants.FIREBIRD2_5:
+            port = configurator.port_firebird2_5
+        else:
+            port = configurator.port_firebird3_0
+
+        file_content = file_content.replace(SampleFiles.FIREBIRD_PORT, port)
+        return file_content
+
+    @staticmethod
+    def write_file(content, path):
+        with open(path, 'w') as file:
+            file.write(content)

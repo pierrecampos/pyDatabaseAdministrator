@@ -6,6 +6,7 @@ import psutil
 from fdb import Error
 
 from model.Constants import Constants
+from util.FolderManager import FolderManager
 from util.SampleFile import SampleFiles
 
 
@@ -75,11 +76,26 @@ class FirebirdUtils:
     @staticmethod
     def build_firebird_file_conf(configurator, firebird_version, database):
         file_content = SampleFiles.BASE_CONF
-        file_content = file_content.replace(SampleFiles.BASE_CONF_ALIAS, database.path)
+        file_content = file_content.replace(SampleFiles.BASE_CONF_ALIAS, FolderManager.fix_path(database.path))
+        file_content = file_content.replace(SampleFiles.NFE_ALIAS,
+                                            FolderManager.fix_path(configurator.database_nfe_path))
+        file_content = file_content.replace(SampleFiles.VERSION_ALIAS,
+                                            FolderManager.fix_path(configurator.version_path))
+        file_content = file_content.replace(SampleFiles.ADDRESS_ALIAS,
+                                            FolderManager.fix_path(configurator.address_path))
 
         if firebird_version == Constants.FIREBIRD2_5:
-            file_content = file_content.replace(SampleFiles.LOG_ALIAS, configurator.log2_5_path)
+            file_content = file_content.replace(SampleFiles.LOG_ALIAS, FolderManager.fix_path(configurator.log2_5_path))
         else:
-            file_content = file_content.replace(SampleFiles.LOG_ALIAS, configurator.log3_0_path)
+            file_content = file_content.replace(SampleFiles.LOG_ALIAS, FolderManager.fix_path(configurator.log3_0_path))
 
         return file_content
+
+    @staticmethod
+    def get_default_firebird_file_path(configurator, firebird_version):
+        path = ''
+        if firebird_version == Constants.FIREBIRD2_5:
+            path = os.path.join(configurator.firebird2_5_path, Constants.FIREBIRD2_5_CONF_NAME)
+        else:
+            path = os.path.join(configurator.firebird3_0_path, Constants.FIREBIRD3_0_CONF_NAME)
+        return FolderManager.fix_path(path)

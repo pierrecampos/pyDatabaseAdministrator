@@ -4,6 +4,7 @@ from model.Constants import Constants
 from util.DialogsHelper import DialogsHelper
 from util.FirebirdUtils import FirebirdUtils
 from util.FolderManager import FolderManager
+from util.Utils import Utils
 from views.ui.ManageDatabaseScreenUI import Ui_ManageDatabaseScreen
 
 
@@ -25,6 +26,14 @@ class ManageDatabaseScreen(QWidget, Ui_ManageDatabaseScreen):
             DialogsHelper.show_warning(self, "Conexão",
                                        "Não foi possível se conectar ao banco " + selected_database_name)
             return
+
+        firebird_conf = FirebirdUtils.build_firebird_file_conf(self.conf, firebird_version, database)
+        firebird_conf_path = FirebirdUtils.get_default_firebird_file_path(self.conf, firebird_version)
+        Utils.write_file(firebird_conf, firebird_conf_path)
+
+        local_xml = Utils.build_local_xml(self.conf, firebird_version)
+        Utils.write_file(local_xml, self.conf.local_xml_path)
+
         self.set_status(connected, firebird_version, selected_database_name)
 
     def fill_database_list(self):
