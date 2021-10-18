@@ -17,6 +17,7 @@ class ManageDatabaseScreen(QWidget, Ui_ManageDatabaseScreen):
         self.database_list = FolderManager.get_folders(self.conf.databases_path)
         self.fill_database_list()
         self.databaseList.doubleClicked.connect(self.set_database)
+        self.txtFilterDatabase.textChanged.connect(self.apply_filter)
 
     def set_database(self):
         selected_database_name = self.databaseList.currentItem().text()
@@ -41,9 +42,13 @@ class ManageDatabaseScreen(QWidget, Ui_ManageDatabaseScreen):
 
         self.set_status(connected, firebird_version, selected_database_name)
 
-    def fill_database_list(self):
+    def fill_database_list(self, filtered_folders=None):
         self.databaseList.clear()
-        self.databaseList.addItems(self.database_list)
+        self.databaseList.addItems(self.database_list if filtered_folders is None else filtered_folders)
+
+    def apply_filter(self):
+        filtered_folders = Utils.filter_list(self.database_list, self.txtFilterDatabase.text())
+        self.fill_database_list(filtered_folders)
 
     def update_database_list(self):
         self.database_list = FolderManager.get_folders(self.conf.databases_path)

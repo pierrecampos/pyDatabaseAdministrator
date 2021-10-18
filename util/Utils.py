@@ -42,3 +42,7 @@ class Utils:
                 file.write(content)
         except IOError:
             raise ExceptionSaveFile("Erro ao tentar escrever o arquivo!")
+
+    @staticmethod
+    def filter_list(original_list, search):
+        return list(filter(lambda item: search.lower() in item.lower(), original_list))
