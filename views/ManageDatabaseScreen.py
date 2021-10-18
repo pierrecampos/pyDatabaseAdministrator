@@ -40,7 +40,8 @@ class ManageDatabaseScreen(QWidget, Ui_ManageDatabaseScreen):
             DialogsHelper.show_error(self, "Error", err.message)
             return
 
-        self.set_status(connected, firebird_version, selected_database_name)
+        version_database = FirebirdUtils.get_version_from_database(database.path, firebird_version)
+        self.set_status(connected, firebird_version, selected_database_name, version_database)
 
     def fill_database_list(self, filtered_folders=None):
         self.databaseList.clear()
@@ -54,7 +55,7 @@ class ManageDatabaseScreen(QWidget, Ui_ManageDatabaseScreen):
         self.database_list = FolderManager.get_folders(self.conf.databases_path)
         self.fill_database_list()
 
-    def set_status(self, connected, firebird_version, database):
+    def set_status(self, connected, firebird_version, database, version_database):
         if connected:
             self.lblConnectionStatus.setText('Conectado')
             self.lblConnectionStatus.setStyleSheet('color:green;')
@@ -65,3 +66,4 @@ class ManageDatabaseScreen(QWidget, Ui_ManageDatabaseScreen):
         self.lblDatabaseConnected.setText(database)
         self.lblDatabaseVersion.setText('-')
         self.lblFirebirdVersion.setText(Constants.get_version_string(firebird_version))
+        self.lblDatabaseVersion.setText(version_database)

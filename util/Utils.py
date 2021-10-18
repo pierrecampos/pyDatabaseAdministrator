@@ -46,3 +46,8 @@ class Utils:
     @staticmethod
     def filter_list(original_list, search):
         return list(filter(lambda item: search.lower() in item.lower(), original_list))
+
+    @staticmethod
+    def format_version_database(version):
+        return '{}-{}-{}-{}'.format(version[:4], version[4:6], version[6:8], version[8:])
+

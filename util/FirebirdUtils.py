@@ -8,17 +8,18 @@ from fdb import Error
 from model.Constants import Constants
 from util.FolderManager import FolderManager
 from util.SampleFile import SampleFiles
+from util.Utils import Utils
 
 
 class FirebirdUtils:
 
     @staticmethod
-    def test_connection(dsn, port):
+    def get_connection(dsn, port):
         try:
-            fdb.connect(dsn, user='sysdba', password='masterkey', port=port)
-            return True
+            connection = fdb.connect(dsn, user='sysdba', password='masterkey', port=port)
+            return connection
         except Error:
-            return False
+            return None
 
     @classmethod
     def discover_connection(cls, database, configurator):
@@ -67,11 +68,11 @@ class FirebirdUtils:
     def discover_firebird(cls, firebird, dsn, port):
         connected = False
         if firebird == Constants.FIREBIRD2_5:
-            connected = cls.test_connection(dsn, port)
+            connected = cls.get_connection(dsn, port)
         elif firebird == Constants.FIREBIRD3_0:
-            connected = cls.test_connection(dsn, port)
+            connected = cls.get_connection(dsn, port)
 
-        return connected
+        return connected is not None
 
     @staticmethod
     def build_firebird_file_conf(configurator, firebird_version, database):
@@ -99,3 +100,14 @@ class FirebirdUtils:
         else:
             path = os.path.join(configurator.firebird3_0_path, Constants.FIREBIRD3_0_CONF_NAME)
         return FolderManager.fix_path(path)
+
+    @classmethod
+    def get_version_from_database(cls, dsn, port):
+        connection = cls.get_connection(dsn, port)
+        version = '-'
+        if connection is not None:
+            cursor = connection.cursor()
+            select = 'Select Max(V.codigo) Version From Versao V'
+            result = cursor.execute(select)
+            version = str(result.fetchone()[0])
+        return '-' if version is None else Utils.format_version_database(version)
