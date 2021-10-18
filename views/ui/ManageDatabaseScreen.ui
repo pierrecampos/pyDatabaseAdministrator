@@ -91,7 +91,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Versão Banco</string>
+         <string>Versão Banco:</string>
         </property>
        </widget>
       </item>

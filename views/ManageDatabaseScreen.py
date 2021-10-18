@@ -18,6 +18,7 @@ class ManageDatabaseScreen(QWidget, Ui_ManageDatabaseScreen):
         self.fill_database_list()
         self.databaseList.doubleClicked.connect(self.set_database)
         self.txtFilterDatabase.textChanged.connect(self.apply_filter)
+        self.databaseList.setStyleSheet('QListWidget::item:nth-child(2){color:red};')
 
     def set_database(self):
         selected_database_name = self.databaseList.currentItem().text()

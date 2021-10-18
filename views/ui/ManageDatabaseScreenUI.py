@@ -180,7 +180,7 @@ class Ui_ManageDatabaseScreen(object):
         ManageDatabaseScreen.setWindowTitle(_translate("ManageDatabaseScreen", "Administrar Bancos"))
         self.lblStatus.setText(_translate("ManageDatabaseScreen", "Status:"))
         self.lblDatabase.setText(_translate("ManageDatabaseScreen", "Banco:"))
-        self.lblDatabaseV.setText(_translate("ManageDatabaseScreen", "Versão Banco"))
+        self.lblDatabaseV.setText(_translate("ManageDatabaseScreen", "Versão Banco:"))
         self.lblConnectionStatus.setText(_translate("ManageDatabaseScreen", "Desconectado"))
         self.txtFilterDatabase.setPlaceholderText(_translate("ManageDatabaseScreen", "Pesquisar banco"))
         self.lblFirebirdV.setText(_translate("ManageDatabaseScreen", "Versão Firebird:"))
