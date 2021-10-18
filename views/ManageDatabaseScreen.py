@@ -24,7 +24,7 @@ class ManageDatabaseScreen(QWidget, Ui_ManageDatabaseScreen):
         database = self.database_list[selected_database_name]
         connected, firebird_version = FirebirdUtils.discover_connection(database, self.conf)
         if not connected:
-            self.set_status(connected, firebird_version, selected_database_name)
+            self.set_status(connected, firebird_version, selected_database_name, '-')
             DialogsHelper.show_warning(self, "Conexão",
                                        "Não foi possível se conectar ao banco " + selected_database_name)
             return
