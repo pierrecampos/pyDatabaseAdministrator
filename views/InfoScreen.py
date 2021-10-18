@@ -1,6 +1,6 @@
 import webbrowser
 
-from PyQt5.QtWidgets import QWidget, QLabel
+from PyQt5.QtWidgets import QWidget
 
 from views.ui.InfoScreenUI import Ui_Info
 
@@ -12,5 +12,4 @@ class InfoScreen(QWidget, Ui_Info):
         self.btnLinkGitHub.clicked.connect(self.open_github_link)
 
     def open_github_link(self):
-        print('ok')
         webbrowser.open(self.btnLinkGitHub.text())

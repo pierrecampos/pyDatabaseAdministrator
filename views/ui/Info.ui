@@ -169,7 +169,7 @@ color: blue;
       </font>
      </property>
      <property name="text">
-      <string>Py Administrator Database</string>
+      <string>Py Database Administrator</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

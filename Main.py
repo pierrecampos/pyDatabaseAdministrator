@@ -1,5 +1,6 @@
 import sys
 
+from PyQt5 import QtGui
 from PyQt5.QtWidgets import QMainWindow, QApplication
 
 # Imports UIs
@@ -15,6 +16,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         super().setupUi(self)
+        self.setWindowIcon(QtGui.QIcon('pi.png'))
         self.fm = FileManager()
         self.configuration = Configuration(self.fm.get_attributes_from_config_file())
 

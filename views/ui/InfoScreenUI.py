@@ -129,5 +129,5 @@ class Ui_Info(object):
         self.label_4.setText(_translate("Info", "MIT"))
         self.btnLinkGitHub.setText(_translate("Info", "https://github.com/pierrecampos/pyDatabaseAdministrator"))
         self.label_2.setText(_translate("Info", "Projeto criado para auxiliar na troca de bancos Firebird 2.5 e 3.0"))
-        self.label.setText(_translate("Info", "Py Administrator Database"))
+        self.label.setText(_translate("Info", "Py Database Administrator"))
         self.label_9.setText(_translate("Info", "Versão: 1.0.0"))

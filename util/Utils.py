@@ -50,4 +50,3 @@ class Utils:
     @staticmethod
     def format_version_database(version):
         return '{}-{}-{}-{}'.format(version[:4], version[4:6], version[6:8], version[8:])
-
