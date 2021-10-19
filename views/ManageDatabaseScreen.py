@@ -1,3 +1,4 @@
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QWidget
 
 from model.Constants import Constants
@@ -18,7 +19,8 @@ class ManageDatabaseScreen(QWidget, Ui_ManageDatabaseScreen):
         self.fill_database_list()
         self.databaseList.doubleClicked.connect(self.set_database)
         self.txtFilterDatabase.textChanged.connect(self.apply_filter)
-        self.databaseList.setStyleSheet('QListWidget::item:nth-child(2){color:red};')
+        self.btnRefreshDatabaseList.setIcon(QIcon(FolderManager.get_full_path('../images/refresh.png')))
+        self.btnRefreshDatabaseList.clicked.connect(self.refresh_database_list)
 
     def set_database(self):
         selected_database_name = self.databaseList.currentItem().text()
@@ -47,6 +49,11 @@ class ManageDatabaseScreen(QWidget, Ui_ManageDatabaseScreen):
     def fill_database_list(self, filtered_folders=None):
         self.databaseList.clear()
         self.databaseList.addItems(self.database_list if filtered_folders is None else filtered_folders)
+
+    def refresh_database_list(self):
+        self.txtFilterDatabase.clear()
+        self.database_list = FolderManager.get_folders(self.conf.databases_path)
+        self.fill_database_list()
 
     def apply_filter(self):
         filtered_folders = Utils.filter_list(self.database_list, self.txtFilterDatabase.text())

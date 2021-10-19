@@ -1,7 +1,9 @@
+import inspect
 import os
-from functools import cmp_to_key
+
+from PyQt5.QtCore import QDir
+
 from model.Database import Database
-from util.Utils import Utils
 
 
 class FolderManager:
@@ -26,3 +28,8 @@ class FolderManager:
     @staticmethod
     def fix_path(path):
         return os.path.abspath(path)
+
+    @staticmethod
+    def get_full_path(suffix_path):
+        return os.path.dirname(
+            os.path.abspath(inspect.getfile(inspect.currentframe()))) + QDir.separator() + suffix_path
