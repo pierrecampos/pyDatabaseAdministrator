@@ -2,7 +2,7 @@
 
 Py Database Administrator é um projeto para auxiliar na troca de bancos Firebird 2.5 e 3.0, onde o usuário pode selecionar o banco que ele deseja utilizar naquele momento.
 
->Objetivo deste projeto foi criar uma automação para meu atual trabalho e também aprender um pouco mais sobre Python e seu uso utilizando classes.
+>O objetivo deste projeto foi criar uma automação para meu atual trabalho e também aprender um pouco mais sobre Python e seu uso utilizando classes.
 ##
 
 ## Funcionalidades: 👨‍💻
@@ -26,5 +26,5 @@ Py Database Administrator é um projeto para auxiliar na troca de bancos Firebir
 [MIT](https://choosealicense.com/licenses/mit/)
 
 ##
-<h4 align="center">Feito com ❤️ e umas doses de ☕ sem açúcar.</h4>
+<h4 align="center">Feito com ❤️ e algumas doses de ☕ sem açúcar.</h4>
 <p align="center"><b>Versão 1.0.0</b></p>
