@@ -19,7 +19,9 @@ Py Database Administrator é um projeto para auxiliar na troca de bancos Firebir
 - [**PyQt5 5.15.4**](https://pypi.org/project/PyQt5/) -- Biblioteca para interface QT.
 
 ## Imagens 🗺️
->Em Breve
+![Tela Administrar Bancos](images/Tela-1.png)
+![Tela Configurações](images/Tela-2.png)
+![Tela Sobre](images/Tela-3.png)
 
 
 ## Licença ❗
