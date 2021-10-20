@@ -18,11 +18,12 @@ Py Database Administrator é um projeto para auxiliar na troca de bancos Firebir
 - [**Psutil 5.8.0**](https://pypi.org/project/psutil/) -- Biblioteca para monitoramento de processos;
 - [**PyQt5 5.15.4**](https://pypi.org/project/PyQt5/) -- Biblioteca para interface QT.
 
-## Imagens 🗺️
-![Tela Administrar Bancos](images/Tela-1.png)
-![Tela Configurações](images/Tela-2.png)
-![Tela Sobre](images/Tela-3.png)
-
+## Imagens 🗺️]
+<div align="center">
+<img src="https://github.com/pierrecampos/pyDatabaseAdministrator/blob/master/images/Tela-1.png" height="400px">
+<img src="https://github.com/pierrecampos/pyDatabaseAdministrator/blob/master/images/Tela-2.png" height="400px">
+<img src="https://github.com/pierrecampos/pyDatabaseAdministrator/blob/master/images/Tela-3.png" height="400px">
+</div>
 
 ## Licença ❗
 [MIT](https://choosealicense.com/licenses/mit/)
