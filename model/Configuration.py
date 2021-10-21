@@ -11,6 +11,8 @@ class Configuration:
         self.firebird3_0_path = ''
         self.port_firebird2_5 = ''
         self.port_firebird3_0 = ''
+        self.nfce_path = ''
+        self.binarydata_path = ''
         self.set_attributes(attributes)
 
     def set_attributes(self, attributes):

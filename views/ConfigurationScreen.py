@@ -49,6 +49,12 @@ class ConfigurationScreen(QWidget, Ui_Configuration):
         elif sender == self.btnFirebirdPath3_0:
             path = Utils.get_folder_path(self)
             self.txtFirebird3_0.setText(path)
+        elif sender == self.btnDatabaseNFCe:
+            path = Utils.get_file_path(self, '*.fdb')
+            self.txtDatabaseNFCe.setText(path)
+        elif sender == self.btnDatabaseBinaryData:
+            path = Utils.get_file_path(self, '*.fdb')
+            self.txtDatabaseBinaryData.setText(path)
         elif sender == self.btnSaveSettings:
             self.save_settings()
 
@@ -80,6 +86,9 @@ class ConfigurationScreen(QWidget, Ui_Configuration):
         attributes["firebird3_0_path"] = self.txtFirebird3_0.text()
         attributes["port_firebird2_5"] = self.txtFirebirdPort2_5.text()
         attributes["port_firebird3_0"] = self.txtFirebirdPort3_0.text()
+        attributes["nfce_path"] = self.txtDatabaseNFCe.text()
+        attributes["binarydata_path"] = self.txtDatabaseBinaryData.text()
+
         self.conf.set_attributes(attributes)
 
     def object_to_screen(self):
@@ -94,6 +103,8 @@ class ConfigurationScreen(QWidget, Ui_Configuration):
         self.txtFirebird3_0.setText(self.conf.firebird3_0_path)
         self.txtFirebirdPort2_5.setText(self.conf.port_firebird2_5)
         self.txtFirebirdPort3_0.setText(self.conf.port_firebird3_0)
+        self.txtDatabaseNFCe.setText(self.conf.nfce_path)
+        self.txtDatabaseBinaryData.setText(self.conf.binarydata_path)
 
     def validate_fields(self):
         txt_values = dict()

@@ -85,6 +85,9 @@ class FirebirdUtils:
         file_content = file_content.replace(SampleFiles.ADDRESS_ALIAS,
                                             FolderManager.fix_path(configurator.address_path))
 
+        file_content = file_content.replace(SampleFiles.NFCE_ALIAS, FolderManager.fix_path(configurator.nfce_path))
+        file_content = file_content.replace(SampleFiles.BINARY_DATA, FolderManager.fix_path(configurator.binarydata_path))
+
         if firebird_version == Constants.FIREBIRD2_5:
             file_content = file_content.replace(SampleFiles.LOG_ALIAS, FolderManager.fix_path(configurator.log2_5_path))
         else:

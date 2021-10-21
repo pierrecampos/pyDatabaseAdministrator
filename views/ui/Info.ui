@@ -191,7 +191,7 @@ color: blue;
       </font>
      </property>
      <property name="text">
-      <string>Versão: 1.0.0</string>
+      <string>Versão: 1.0.1</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
