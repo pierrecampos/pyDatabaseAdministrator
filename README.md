@@ -30,4 +30,4 @@ Py Database Administrator é um projeto para auxiliar na troca de bancos Firebir
 
 ##
 <h4 align="center">Feito com ❤️ e algumas doses de ☕ sem açúcar.</h4>
-<p align="center"><b>Versão 1.0.0</b></p>
+<p align="center"><b>Versão 1.0.1</b></p>
